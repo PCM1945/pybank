@@ -7,7 +7,7 @@ initial_screen = """                    ######## py bank menu #######
                         1- create an account
                         2- delete an account
                         3- make a withdrow
-                        4- make an deposit
+                        4- make a deposit
                         5- inquire accounts
                         0- exit      
                     """
@@ -50,7 +50,12 @@ def main():
             print(continue_msg)
             contiue = input()
         if menu_cursor == 4:
-            print("make an deposit menu")
+            print("####### deposit menu ###########")
+            code= input("enter the account code: ")
+            sec = input("enter the securuty code of the account: ")
+            value_to_add = input("enter the amount you would like do deposit: ")
+            c.add_credit(cards, code, sec, value_to_add)
+
             print(continue_msg)
             contiue = input()
         if menu_cursor == 5:
@@ -60,9 +65,9 @@ def main():
             inquire = c.find_card(cards, code)
             if code == "all":
                 for i in inquire:
-                    print(i.name, i.code, i.sec_code)
+                    print(i.name, i.code, i.sec_code, i.credit)
             else:
-                print(inquire.name, inquire.code, inquire.sec_code)
+                print(inquire.name, inquire.code, inquire.sec_code, i.credit)
             print(continue_msg)
             contiue = input()
         elif menu_cursor == 0:
